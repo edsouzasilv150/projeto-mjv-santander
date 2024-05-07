@@ -19,3 +19,10 @@ export interface ILocation {
   country: string,
   timezone: string
 }
+
+export interface ApiResponse {
+  data: IUser[];
+  total: number;
+  page: number;
+  limit: number;
+}

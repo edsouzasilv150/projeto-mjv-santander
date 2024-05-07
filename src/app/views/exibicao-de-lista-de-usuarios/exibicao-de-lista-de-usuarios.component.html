@@ -1,7 +1,8 @@
 <p>exibicao-de-lista-de-usuarios works!</p>
 
 <tr *ngFor="let usuario of usuarios">
-  <td>{{ usuario.picture}}</td>
-  <td>{{ usuario.firstName }} {{usuario.lastName}}</td>
-  <td>{{ usuario.email }}</td>
+  <td>{{ usuario.id }}</td>
+  <td><img src="{{ usuario.picture }}" alt="user picture"></td>
+  <td>{{ usuario.title }}</td>
+  <td>{{ usuario.firstName }} {{ usuario.lastName }}</td>
 </tr>

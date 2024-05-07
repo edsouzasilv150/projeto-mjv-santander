@@ -1,22 +1,41 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IUser } from '../shared/models/user.model';
+import { ApiResponse, IUser } from '../shared/models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
   private apiUrl = environment.API_PATH;
+  private localStorageKey = 'usuarios';
 
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<IUser[]> {
-    return this.http.get<IUser[]>(`${this.apiUrl}/user`);
+    const localData = localStorage.getItem(this.localStorageKey);
+    if(localData) {
+      return of(JSON.parse(localData));
+    } else {
+      return this.http.get<ApiResponse>(`${this.apiUrl}/user`).pipe(
+        map(response => {
+          this.saveUsersToLocalStorage(response.data); // Salva os dados no localStorage
+          return response.data;
+        }),
+        catchError(error => {
+          console.error('Erro ao obter usuários da API. Tentando recuperar do localStorage.', error);
+          return of([]);
+        })
+      );
+    }
   }
 
   getUser(): Observable<IUser[]> {
     return this.http.get<IUser[]>(`${this.apiUrl}/user/1`);
+  }
+
+  saveUsersToLocalStorage(usuarios: IUser[]) {
+    localStorage.setItem(this.localStorageKey, JSON.stringify(usuarios));
   }
 }
