@@ -11,18 +11,19 @@ import { TokenInterceptor } from './core/interceptors/token.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
-    ExibicaoDeListaDeUsuariosComponent
+    ExibicaoDeListaDeUsuariosComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     PagesModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor
+      useClass: TokenInterceptor,
+      multi: true,
     }
   ],
   bootstrap: [AppComponent]

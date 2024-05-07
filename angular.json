@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "avaliacao": {
+    "projeto-mjv-santander": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/avaliacao",
+            "outputPath": "dist/projeto-mjv-santander",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "avaliacao:build:production"
+              "browserTarget": "projeto-mjv-santander:build:production"
             },
             "development": {
-              "browserTarget": "avaliacao:build:development"
+              "browserTarget": "projeto-mjv-santander:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "avaliacao:build"
+            "browserTarget": "projeto-mjv-santander:build"
           }
         },
         "test": {
