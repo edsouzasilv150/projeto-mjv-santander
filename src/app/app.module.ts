@@ -7,6 +7,7 @@ import { PagesModule } from './views/pages.module';
 import { ExibicaoDeListaDeUsuariosComponent } from './views/exibicao-de-lista-de-usuarios/exibicao-de-lista-de-usuarios.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { TokenInterceptor } from './core/interceptors/token.interceptor';
     AppRoutingModule,
     PagesModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     {
