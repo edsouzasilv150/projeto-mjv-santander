@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { IUser } from 'src/app/shared/models/user.model';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-exibicao-de-lista-de-usuarios',
@@ -6,5 +9,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./exibicao-de-lista-de-usuarios.component.scss']
 })
 export class ExibicaoDeListaDeUsuariosComponent {
+  usuarios: IUser[] = [];
 
+  constructor(private usuarioService: UsuarioService) {
+    this.obterTodosUsuarios();
+  }
+
+  obterTodosUsuarios() {
+    this.usuarioService.getUsers()
+      .subscribe(usuarios => this.usuarios = usuarios)
+  }
 }
