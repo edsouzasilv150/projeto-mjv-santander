@@ -1,19 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UsuarioUnicoComponent } from './usuario-unico/usuario-unico.component';
-import { CriarUsuarioComponent } from './criar-usuario/criar-usuario.component';
-import { AtualizarUsuarioComponent } from './atualizar-usuario/atualizar-usuario.component';
+import { PagesRoutingModule } from './pages-routing.module';
 
 @NgModule({
-  declarations: [
-
-  
-    UsuarioUnicoComponent,
-        CriarUsuarioComponent,
-        AtualizarUsuarioComponent
-  ],
+  declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    PagesRoutingModule
   ],
   exports: [
 
