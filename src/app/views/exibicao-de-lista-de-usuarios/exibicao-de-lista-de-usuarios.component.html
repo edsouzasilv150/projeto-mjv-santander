@@ -1,8 +1,27 @@
-<p>exibicao-de-lista-de-usuarios works!</p>
-
-<tr *ngFor="let usuario of usuarios">
-  <td>{{ usuario.id }}</td>
-  <td><img src="{{ usuario.picture }}" alt="user picture"></td>
-  <td>{{ usuario.title }}</td>
-  <td>{{ usuario.firstName }} {{ usuario.lastName }}</td>
-</tr>
+<div class="container">
+  <div class="title">
+    <h1>Lista de usuários</h1>
+    <button class="btnAdd">Adicionar novo usuário</button>
+  </div>
+  <div class="content">
+    <mat-card *ngFor="let usuario of usuarios">
+      <mat-card-content>
+        <span><img src="{{ usuario.picture }}" alt="user picture"></span>
+        <div class="cardContentInt">
+          <div class="contentInterno">
+            <span>{{ usuario.id }}</span>
+            <div class="titleName">
+              <span>{{ usuario.title }} - </span>
+              <span>{{ usuario.firstName }} {{ usuario.lastName }}</span>
+            </div>
+          </div>
+          <div class="botoes">
+            <button class="btnPerfil">Perfil</button>
+            <button class="btnAtualizar">Atualizar</button>
+            <button class="btnDeletar">Deletar</button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -11,7 +11,7 @@ export class ExibicaoDeListaDeUsuariosComponent {
   usuarios: IUser[] = [];
 
   constructor(private usuarioService: UsuarioService) {
-    this.obterTodosUsuarios();
+     this.obterTodosUsuarios();
   }
 
   obterTodosUsuarios() {

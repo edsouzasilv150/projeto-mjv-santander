@@ -1,0 +1,129 @@
+.container {
+  padding-bottom: 60px;
+  box-sizing: border-box;
+
+  .title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    width: 100%;
+    max-width: 775px;
+    margin-bottom: 30px;
+
+    h1 {
+      color: #677d89;
+    }
+
+    button {
+      width: 160px;
+      height: 40px;
+      padding: 5px;
+      box-sizing: border-box;
+      outline: none;
+      border: none;
+      border-radius: 6px;
+      color: #edeef4;
+      cursor: pointer;
+    }
+
+    .btnAdd {
+      background-color: #1f688a;
+      color: #FFFFFF;
+    }
+
+    .btnAdd:hover {
+      background-color: #185875;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: auto;
+    width: 100%;
+    max-width: 775px;
+    height: 100%;
+    background-color: #edf3f8;
+  }
+
+  mat-card {
+    width: 100%;
+    max-width: 380px;
+    height: 104px;
+    background-color: #FFFFFF;
+
+    mat-card-content {
+      display: flex;
+      font-size: 16px;
+      font-weight: 500;
+
+      .cardContentInt {
+        display: flex;
+        flex-wrap: wrap;
+        .contentInterno {
+          span {
+            font-size: 14px;
+            color: #677d89;
+          }
+          margin-right: 25px;
+        }
+
+        .botoes {
+          width: 100%;
+          min-width: 150px;
+          display: flex;
+          gap: 10px;
+          align-self: flex-end;
+
+          button {
+            width: 100%;
+            max-width: 80px;
+            height: 30px;
+            padding: 5px;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            border-radius: 6px;
+            color: #edeef4;
+            cursor: pointer;
+          }
+
+          .btnPerfil {
+            background-color: #ed8a18;
+            color: #FFFFFF;
+          }
+
+          .btnPerfil:hover {
+            background-color: #df8217;
+          }
+
+          .btnAtualizar {
+            background-color: #6fa346;
+            color: #FFFFFF;
+          }
+
+          .btnAtualizar:hover {
+            background-color: #669c3d;
+          }
+
+          .btnDeletar {
+            background-color: #b73518;
+            color: #FFFFFF;
+          }
+
+          .btnDeletar:hover {
+            background-color: #a82f14;
+          }
+        }
+      }
+    }
+  }
+
+  img {
+    width: 72px;
+    height: 72px;
+    margin-right: 10px;
+  }
+}
