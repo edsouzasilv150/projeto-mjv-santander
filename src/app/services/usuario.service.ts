@@ -35,7 +35,23 @@ export class UsuarioService {
     localStorage.setItem(this.localStorageKey, JSON.stringify(usuarios));
   }
 
-  getUser(): Observable<IUser[]> {
-    return this.http.get<IUser[]>(`${this.apiUrl}/user/1`);
+  getUserById(userId: string): Observable<IUser> {
+    const url = `${this.apiUrl}/user/${userId}`;
+    return this.http.get<IUser>(url);
+  }
+
+  createUser(newUser: IUser): Observable<IUser> {
+    const url = `${this.apiUrl}/user/create`;
+    return this.http.post<IUser>(url, newUser);
+  }
+
+  updateUser(userId: string, updatedUser: Partial<IUser>): Observable<IUser> {
+    const url = `${this.apiUrl}/user/${userId}`;
+    return this.http.put<IUser>(url, updatedUser);
+  }
+
+  deleteUser(userId: string): Observable<string> {
+    const url = `${this.apiUrl}/user/${userId}`;
+    return this.http.delete(url, { responseType: 'text' });
   }
 }
