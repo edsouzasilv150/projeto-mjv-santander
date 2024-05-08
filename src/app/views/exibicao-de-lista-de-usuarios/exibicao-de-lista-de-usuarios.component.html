@@ -1,7 +1,7 @@
 <div class="container">
   <div class="title">
     <h1>Lista de usuários</h1>
-    <button class="btnAdd">Adicionar novo usuário</button>
+    <button class="btnAdd" (click)="pagCriarUsuario()">Adicionar novo usuário</button>
   </div>
   <div class="content">
     <mat-card *ngFor="let usuario of usuarios">
@@ -16,8 +16,8 @@
             </div>
           </div>
           <div class="botoes">
-            <button class="btnPerfil">Perfil</button>
-            <button class="btnAtualizar">Atualizar</button>
+            <button class="btnPerfil" (click)="pagUsuarioUnico(usuario.id)">Perfil</button>
+            <button class="btnAtualizar" (click)="pagAtualizarUsuario(usuario.id)">Atualizar</button>
             <button class="btnDeletar">Deletar</button>
           </div>
         </div>

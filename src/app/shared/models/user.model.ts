@@ -9,7 +9,7 @@ export interface IUser {
   registerDate?: string,
   phone?: string,
   picture: string,
-  location?: ILocation[]
+  location?: ILocation
 }
 
 export interface ILocation {

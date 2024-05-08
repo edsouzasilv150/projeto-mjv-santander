@@ -5,9 +5,9 @@ import { CriarUsuarioComponent } from './criar-usuario/criar-usuario.component';
 import { AtualizarUsuarioComponent } from './atualizar-usuario/atualizar-usuario.component';
 
 const routes: Routes = [
-  { path: 'usuario-unico', component: UsuarioUnicoComponent },
+  { path: 'usuario-unico/:id', component: UsuarioUnicoComponent },
   { path: 'criar-usuario', component: CriarUsuarioComponent },
-  { path: 'atualizar-usuario', component: AtualizarUsuarioComponent }
+  { path: 'atualizar-usuario/:id', component: AtualizarUsuarioComponent }
 ];
 
 @NgModule({
