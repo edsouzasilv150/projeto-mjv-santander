@@ -8,6 +8,7 @@ import { ExibicaoDeListaDeUsuariosComponent } from './views/exibicao-de-lista-de
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PagesModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [
     {

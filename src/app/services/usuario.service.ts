@@ -31,11 +31,11 @@ export class UsuarioService {
     }
   }
 
-  getUser(): Observable<IUser[]> {
-    return this.http.get<IUser[]>(`${this.apiUrl}/user/1`);
-  }
-
   saveUsersToLocalStorage(usuarios: IUser[]) {
     localStorage.setItem(this.localStorageKey, JSON.stringify(usuarios));
+  }
+
+  getUser(): Observable<IUser[]> {
+    return this.http.get<IUser[]>(`${this.apiUrl}/user/1`);
   }
 }
