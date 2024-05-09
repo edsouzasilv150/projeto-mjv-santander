@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  justify-content: center;
+
+  .content {
+    width: 100%;
+    max-width: 900px;
+    height: 100vh;
+
+    .title {
+      font-size: 18px;
+      color: #677d89;
+    }
+
+    .contentForm {
+      display: flex;
+      gap: 5px;
+
+      .formField {
+        width: 100%;
+        max-width: 440px;
+      }
+    }
+
+    .btnAction {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 30px;
+
+      .btnEnviar {
+        width: 100%;
+        max-width: 80px;
+        height: 40px;
+        padding: 5px;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        border-radius: 6px;
+        color: #edeef4;
+        cursor: pointer;
+        background-color: #1f688a;
+      }
+
+      .btnEnviar:hover {
+        background-color: #185875;
+      }
+    }
+
+    .prefix {
+      margin-left: 15px;
+    }
+
+    .labelFoto {
+      color: #677d89;
+      margin-bottom: 8px;
+    }
+
+    .iconUpload {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+
+      .fa-solid {
+        font-size: 25px;
+        color: #1f688a;
+      }
+
+    }
+  }
+}

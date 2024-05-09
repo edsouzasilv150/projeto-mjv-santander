@@ -1,1 +1,83 @@
-<p>criar-usuario works!</p>
+<div class="container">
+  <div class="content">
+    <h2 class="title">Adicionar Usuário</h2>
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="formulario" class="contentForm">
+          <div class="contentForm1">
+            <mat-form-field class="formField" appearance="fill">
+              <mat-label>Nome:</mat-label>
+              <input type="text" matInput formControlName="firstName" >
+            </mat-form-field>
+            <mat-form-field class="formField" appearance="fill">
+              <mat-label>Sobrenome:</mat-label>
+              <input type="text" matInput formControlName="lastName">
+            </mat-form-field>
+            <mat-form-field class="formField" appearance="fill">
+              <mat-label>Título:</mat-label>
+              <input type="text" matInput formControlName="title">
+            </mat-form-field>
+            <mat-form-field class="formField" appearance="fill">
+              <mat-label>Genero:</mat-label>
+              <input type="text" matInput formControlName="gender">
+            </mat-form-field>
+            <mat-form-field class="formField" appearance="fill">
+              <mat-label>E-mail:</mat-label>
+              <input
+                type="email"
+                matInput type = "email"
+                matInput
+                [formControl] ="emailFormControl"
+                [errorStateMatcher]= "matcher"
+                placeholder = "Ex. pat@example.com">
+
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email é  <strong>Obrigatório</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="contentForm2">
+            <mat-form-field class="formField">
+              <mat-label>Telefone</mat-label>
+              <span class="prefix" matPrefix>+1 &nbsp;</span>
+              <input type="tel"
+                matInput placeholder="(11) 5555-5555"
+                mask="(00) 0000-0000"
+                formControlName="phone">
+            </mat-form-field>
+            <mat-form-field class="formField" appearance="fill">
+              <mat-label>Estado:</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="Ex. California"
+                formControlName="state">
+            </mat-form-field>
+            <mat-form-field class="formField" appearance="fill">
+              <mat-label>Cidade:</mat-label>
+              <input type="text"
+                matInput
+                placeholder="Ex. San Francisco"
+                formControlName="city">
+            </mat-form-field>
+            <div>
+              <label class="labelFoto">Foto:</label>
+              <ngx-file-drop (onFileDrop)="onFileSelected($event)"
+              dropZoneLabel="Arraste e solte o arquivo aqui">
+              </ngx-file-drop>
+              <div class="iconUpload">
+                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+              </div>
+            </div>
+            <mat-card-actions class="btnAction">
+              <button
+               class="btnEnviar"
+               (click)="adicionarUsuario()">Enviar</button>
+            </mat-card-actions>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
