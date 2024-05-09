@@ -20,7 +20,7 @@ import { MatCardModule } from '@angular/material/card';
     PagesModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatCardModule,
+    MatCardModule
   ],
   providers: [
     {
