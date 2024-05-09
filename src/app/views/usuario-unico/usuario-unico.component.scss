@@ -54,7 +54,7 @@
   display: flex;
   justify-content: flex-end;
 
-  button {
+  .btnVoltar {
     width: 100%;
     max-width: 80px;
     height: 30px;
@@ -65,11 +65,7 @@
     border-radius: 6px;
     color: #edeef4;
     cursor: pointer;
-  }
-
-  .btnVoltar {
     background-color: #1f688a;
-    color: #FFFFFF;
   }
 
   .btnVoltar:hover {
