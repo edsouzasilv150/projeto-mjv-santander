@@ -13,11 +13,11 @@ export interface IUser {
 }
 
 export interface ILocation {
-  street: string,
+  street?: string,
   city: string,
   state: string,
-  country: string,
-  timezone: string
+  country?: string,
+  timezone?: string
 }
 
 export interface ApiResponse {
