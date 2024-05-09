@@ -18,7 +18,7 @@
           <div class="botoes">
             <button class="btnPerfil" (click)="pagUsuarioUnico(usuario.id)">Perfil</button>
             <button class="btnAtualizar" (click)="pagAtualizarUsuario(usuario.id)">Atualizar</button>
-            <button class="btnDeletar">Deletar</button>
+            <button  class="btnDeletar" (click)="deletarUsuario(usuario.id.toString())">Deletar</button>
           </div>
         </div>
       </mat-card-content>
