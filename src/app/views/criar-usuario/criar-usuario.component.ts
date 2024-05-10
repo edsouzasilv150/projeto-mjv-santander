@@ -14,7 +14,6 @@ import { FormBuilder, FormGroup,  Validators } from  '@angular/forms' ;
 export class CriarUsuarioComponent implements OnInit {
 
   formulario: FormGroup;
-  selectedFile: File | null = null;
 
   usuario: IUser[] = []
   constructor(
