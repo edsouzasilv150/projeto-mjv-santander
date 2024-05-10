@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import {MatIconModule} from '@angular/material/icon';
+import { AtualizarUsuarioComponent } from './atualizar-usuario/atualizar-usuario.component';
 
 
 export const options: Partial<null|IConfig> | (() => Partial<IConfig>) = null;
@@ -20,6 +21,7 @@ export const options: Partial<null|IConfig> | (() => Partial<IConfig>) = null;
   declarations: [
     UsuarioUnicoComponent,
     CriarUsuarioComponent,
+    AtualizarUsuarioComponent
   ],
   imports: [
     NgxMaskModule.forRoot(),
