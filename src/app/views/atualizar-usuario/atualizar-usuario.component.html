@@ -1,1 +1,47 @@
-<p>atualizar-usuario works!</p>
+<div class="container">
+  <div class="content">
+    <mat-card class="card">
+      <mat-card-header class="headerCard">
+        <div mat-card-avatar class="fotoPerfil">
+          <img *ngFor="let user of usuarioUnico" mat-card-image src="{{ user.picture }}" alt="Photo of a Person">
+        </div>
+        <mat-card-title class="textTitle" *ngFor="let user of usuarioUnico">{{ user.firstName }} {{ user.lastName }}</mat-card-title>
+        <mat-card-subtitle class="subTitle" *ngFor="let user of usuarioUnico">{{ user.title | uppercase }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content class="contentCard">
+
+        <form  class="form" *ngFor="let user of usuarioUnico" class="dadosUsuario">
+          <mat-form-field class="formField" appearance="fill">
+            <mat-label>Nome:</mat-label>
+            <input type="text" name="firstName" matInput [(ngModel)]="user.firstName">
+          </mat-form-field>
+          <mat-form-field class="formField" appearance="fill">
+            <mat-label>Sobrenome:</mat-label>
+            <input type="text" name="lastName" matInput [(ngModel)]="user.lastName">
+          </mat-form-field>
+          <mat-form-field class="formField" appearance="fill">
+            <mat-label>Genero:</mat-label>
+            <input type="text" name="gender" matInput [(ngModel)]="user.gender">
+          </mat-form-field>
+          <mat-form-field class="formField" appearance="fill">
+            <mat-label>Estado:</mat-label>
+            <input type="text" name="state" matInput [(ngModel)]="user.location.state">
+          </mat-form-field>
+          <mat-form-field class="formField" appearance="fill">
+            <mat-label>Cidade:</mat-label>
+            <input type="text" name="city" matInput [(ngModel)]="user.location.city">
+          </mat-form-field>
+          <mat-form-field class="formField" appearance="fill">
+            <mat-label>Telefone:</mat-label>
+            <input type="text" name="phone" matInput [(ngModel)]="user.phone">
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-actions class="btnAction">
+        <button class="btnEnviar" (click)="atualizarUsuario()">Enviar</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
