@@ -8,14 +8,14 @@ export interface IUser {
   dateOfBirth?: string,
   registerDate?: string,
   phone?: string,
-  picture: string,
+  picture?: string,
   location?: ILocation
 }
 
 export interface ILocation {
   street?: string,
-  city: string,
-  state: string,
+  city?: string,
+  state?: string,
   country?: string,
   timezone?: string
 }

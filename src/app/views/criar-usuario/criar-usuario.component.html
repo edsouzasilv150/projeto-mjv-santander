@@ -23,17 +23,8 @@
             </mat-form-field>
             <mat-form-field class="formField" appearance="fill">
               <mat-label>E-mail:</mat-label>
-              <input
-                type="email"
-                matInput type = "email"
-                matInput
-                [formControl] ="emailFormControl"
-                [errorStateMatcher]= "matcher"
-                placeholder = "Ex. pat@example.com">
+              <input type="email" matInput  formControlName="email" placeholder="Ex. pat@example.com">
 
-              <mat-error *ngIf="emailFormControl.hasError('required')">
-                Email é  <strong>Obrigatório</strong>
-              </mat-error>
             </mat-form-field>
           </div>
 
@@ -61,15 +52,7 @@
                 placeholder="Ex. San Francisco"
                 formControlName="city">
             </mat-form-field>
-            <div>
-              <label class="labelFoto">Foto:</label>
-              <ngx-file-drop (onFileDrop)="onFileSelected($event)"
-              dropZoneLabel="Arraste e solte o arquivo aqui">
-              </ngx-file-drop>
-              <div class="iconUpload">
-                <i class="fa-solid fa-arrow-up-from-bracket"></i>
-              </div>
-            </div>
+
             <mat-card-actions class="btnAction">
               <button
                class="btnEnviar"

@@ -1,6 +1,5 @@
 export const environment = {
-  development: false,
-  API_PATH: ""
+  API_PATH: "https://dummyapi.io/data/v1"
 };
 
 
