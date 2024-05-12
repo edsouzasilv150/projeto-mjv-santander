@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, of } from 'rxjs';
+import { EMPTY, Observable, catchError, map, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ApiResponse, IUser } from '../shared/models/user.model';
 
@@ -45,9 +45,13 @@ export class UsuarioService {
   }
 
   updateUser(userId: string, updatedUser: Partial<IUser>): Observable<IUser> {
-    const url = `${this.apiUrl}/user/${userId}`;
-    return this.http.put<IUser>(url, updatedUser);
-  }
+    return this.http.put<IUser>(`${this.apiUrl}/user/${userId}`, updatedUser).pipe(
+        catchError(error => {
+            console.error('Erro ao atualizar usuário:', error);
+            throw error;
+        })
+    );
+}
 
   deleteUser(userId: string): Observable<string> {
     const url = `${this.apiUrl}/user/${userId}`;

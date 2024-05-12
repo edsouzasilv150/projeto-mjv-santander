@@ -3,38 +3,42 @@
     <mat-card class="card">
       <mat-card-header class="headerCard">
         <div mat-card-avatar class="fotoPerfil">
-          <img *ngFor="let user of usuarioUnico" mat-card-image src="{{ user.picture }}" alt="Photo of a Person">
+          <img  mat-card-image [src]="usuarioUnico?.picture" alt="Photo of a Person">
         </div>
-        <mat-card-title class="textTitle" *ngFor="let user of usuarioUnico">{{ user.firstName }} {{ user.lastName }}</mat-card-title>
-        <mat-card-subtitle class="subTitle" *ngFor="let user of usuarioUnico">{{ user.title | uppercase }}</mat-card-subtitle>
+        <mat-card-title class="textTitle">{{ usuarioUnico.firstName }} {{ usuarioUnico.lastName }}</mat-card-title>
+        <mat-card-subtitle class="subTitle">{{ usuarioUnico?.title | uppercase }}</mat-card-subtitle>
       </mat-card-header>
 
       <mat-card-content class="contentCard">
 
-        <form  class="form" *ngFor="let user of usuarioUnico" class="dadosUsuario">
+        <form  class="form" class="dadosUsuario">
           <mat-form-field class="formField" appearance="fill">
             <mat-label>Nome:</mat-label>
-            <input type="text" name="firstName" matInput [(ngModel)]="user.firstName">
+            <input type="text" name="firstName" matInput [(ngModel)]="usuarioUnico.firstName">
           </mat-form-field>
           <mat-form-field class="formField" appearance="fill">
             <mat-label>Sobrenome:</mat-label>
-            <input type="text" name="lastName" matInput [(ngModel)]="user.lastName">
+            <input type="text" name="lastName" matInput [(ngModel)]="usuarioUnico.lastName">
+          </mat-form-field>
+          <mat-form-field class="formField" appearance="fill">
+            <mat-label>E-mail:</mat-label>
+            <input type="email" name="email" matInput  [(ngModel)]="usuarioUnico.email" placeholder="Ex. pat@example.com">
           </mat-form-field>
           <mat-form-field class="formField" appearance="fill">
             <mat-label>Genero:</mat-label>
-            <input type="text" name="gender" matInput [(ngModel)]="user.gender">
+            <input type="text" name="gender" matInput [(ngModel)]="usuarioUnico.gender">
           </mat-form-field>
           <mat-form-field class="formField" appearance="fill">
             <mat-label>Estado:</mat-label>
-            <input type="text" name="state" matInput [(ngModel)]="user.location.state">
+            <input type="text" name="state" matInput [(ngModel)]="usuarioUnico.location.state">
           </mat-form-field>
           <mat-form-field class="formField" appearance="fill">
             <mat-label>Cidade:</mat-label>
-            <input type="text" name="city" matInput [(ngModel)]="user.location.city">
+            <input type="text" name="city" matInput [(ngModel)]="usuarioUnico.location.city">
           </mat-form-field>
           <mat-form-field class="formField" appearance="fill">
             <mat-label>Telefone:</mat-label>
-            <input type="text" name="phone" matInput [(ngModel)]="user.phone">
+            <input type="text" name="phone" matInput [(ngModel)]="usuarioUnico.phone">
           </mat-form-field>
         </form>
       </mat-card-content>

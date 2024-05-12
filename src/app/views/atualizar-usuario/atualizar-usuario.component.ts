@@ -11,7 +11,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./atualizar-usuario.component.scss']
 })
 export class AtualizarUsuarioComponent implements OnInit {
-  usuarioUnico: IUser[] = [];
+  users: IUser[] =[];
+  usuarioUnico: IUser;
   formulario: FormGroup;
 
   constructor(
@@ -24,7 +25,13 @@ export class AtualizarUsuarioComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       const userId = params['id'];
-      this.obterUnicoUsuario(userId);
+      console.log('userId:', userId);
+
+      if (userId) {
+        this.obterUnicoUsuario(userId);
+      } else {
+        console.error('ID do usuário não encontrado na rota.');
+      }
     });
 
     this.formulario = this.formBuilder.group({
@@ -32,7 +39,6 @@ export class AtualizarUsuarioComponent implements OnInit {
       lastName: [''],
       title: [''],
       gender: [''],
-      email: [''],
       picture: [''],
       phone: [''],
       city: [''],
@@ -44,24 +50,49 @@ export class AtualizarUsuarioComponent implements OnInit {
     this.usuarioUnicoService.getUserById(userId)
       .subscribe(
         (usuario: IUser) => {
-          this.usuarioUnico = [usuario];
-        }, (error) =>{
-          console.error('Ocorreu um erro ao obter o usuário:', error)
+          if (usuario) {
+            this.usuarioUnico = usuario;
+
+            this.formulario.patchValue({
+              firstName: usuario.firstName,
+              lastName: usuario.lastName,
+              title: usuario.title,
+              gender: usuario.gender,
+              phone: usuario.phone,
+              city: usuario.location?.city,
+              state: usuario.location?.state
+            });
+
+            console.log('Usuário único:', this.usuarioUnico);
+          } else {
+            console.error('Usuário não encontrado');
+          }
+        },
+        (error) => {
+          console.error('Ocorreu um erro ao obter o usuário:', error);
         }
       );
   }
 
+
+
   atualizarUsuario() {
-    if (this.formulario.invalid) {
+    console.log(this.usuarioUnico, 'chegou aqui chega dados atualizados')
+
+    if (!this.usuarioUnico || this.formulario.invalid) {
       console.error('Preencha os campos obrigatórios.');
       return;
     }
 
-    const userId = this.usuarioUnico[0].id;
+    const userId = this.usuarioUnico.id;
     const updatedUser: Partial<IUser> = this.formulario.value;
+    console.log(updatedUser, 'updatedUser')
 
-    this.usuarioUnicoService.updateUser(userId.toString(), updatedUser).subscribe(
+    console.log(this.usuarioUnico, 'chegou aqui também chega os dados atualizados')
+
+    this.usuarioUnicoService.updateUser(userId.toString(), this.usuarioUnico).subscribe(
       (response) => {
+        console.log(this.usuarioUnico, 'recebeu os dados sem atualizar')
         console.log('Usuário atualizado com sucesso: ', response);
         localStorage.clear();
         this.pagExibirTodos();
